@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: alex-page/github-project-automation-plus@v0.8.1
         with:
-          project: Test project 🚀
+          project: Test project
           column: Backlog
           repo-token: ${{ secrets.GHPROJECT_TOKEN }}
 
