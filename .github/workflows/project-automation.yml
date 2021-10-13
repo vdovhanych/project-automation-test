@@ -16,5 +16,5 @@ jobs:
       if: github.event_name == 'pull_request' && github.event.action == 'opened'
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        GITHUB_PROJECT_URL: https://github.com/vdovhanych/project-automation-test/projects/1
-        GITHUB_PROJECT_COLUMN_NAME: Pull request
+        GITHUB_PROJECT_URL: https://github.com/vdovhanych/project-automation-test/projects/2
+        GITHUB_PROJECT_COLUMN_NAME: In progress
