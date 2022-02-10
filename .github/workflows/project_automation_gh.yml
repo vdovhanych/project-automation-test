@@ -1,0 +1,27 @@
+name: GH cli automate projects test
+
+on: [issues, pull_request]
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+  repository-projects: write
+
+jobs:
+  gh-automate-projects:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add issue to the Backlog project board
+        if: github.event_name == 'issues' && github.event.action == 'opened'
+        run: gh issue edit $ISSUE --add-project "Test project 🚀"
+        env:
+          ISSUE: ${{github.event.issue.html_url}}
+          GITHUB_TOKEN: ${{ secrets.GH_BOT_TOKEN }}
+      
+      - name: Add issue to the pull request project board
+        if: github.event_name == 'pull_request' && github.event.action == 'opened'
+        run: gh pr edit $PULL_REQUEST --add-project "Pull requests"
+        env:
+          PULL_REQUEST: ${{github.event.pull_request.html_url}}
+          GITHUB_TOKEN: ${{ secrets.GH_BOT_TOKEN }}          
