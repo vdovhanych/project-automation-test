@@ -6,11 +6,19 @@ on:
       - opened
 
 jobs:
+  add-to-beta-project:
+    name: Add issue to beta project
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/add-to-project@main
+        with:
+          project-url: https://github.com/users/vdovhanych/projects/2/views/1
+          github-token: ${{ secrets.GH_BOT_TOKEN }}
   add-to-project:
     name: Add issue to project
     runs-on: ubuntu-latest
     steps:
       - uses: actions/add-to-project@main
         with:
-          project-url: https://github.com/users/vdovhanych/projects/2/views/1
+          project-url: https://github.com/vdovhanych/project-automation-test/projects/1
           github-token: ${{ secrets.GH_BOT_TOKEN }}
