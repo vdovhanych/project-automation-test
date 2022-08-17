@@ -5,9 +5,9 @@ on:
       - closed
     branches:
       - "test"
-
 jobs:
   approved:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
       - run: echo "This PR was merged"
