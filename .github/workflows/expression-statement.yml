@@ -2,7 +2,7 @@ name: test action for if
 on:
   pull_request:
     types:
-      - edited
+      - closed
     branches:
       - "test"
 
