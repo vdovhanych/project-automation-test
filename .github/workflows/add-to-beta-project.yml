@@ -1,0 +1,14 @@
+name: Add issues to beta project
+
+on: [issues, pull_request]
+
+jobs:
+  add-to-beta-project:
+    name: Add new issue to the beta project
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/add-to-project@main
+        if: github.event_name == 'issues' && github.event.action == 'opened'  
+        with:
+          project-url: https://github.com/users/vdovhanych/projects/2/views/1
+          github-token: ${{ secrets.GH_BOT_TOKEN }}
